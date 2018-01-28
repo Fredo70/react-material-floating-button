@@ -2,6 +2,7 @@
 
 var React = require('react');
 var classnames = require('classnames');
+var FontAwesomeIcon = require('@fortawesome/react-fontawesome');
 
 class ChildButton extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class ChildButton extends React.Component {
   }
 
   render() {
-    var iconClass = classnames('mfb-component__child-icon', this.props.icon);
+    var iconClass = this.props.icon;
     var className = classnames('mfb-component__button--child',
                                this.props.className,
                                {"mfb-component__button--disabled": this.props.disabled});
@@ -32,7 +33,7 @@ class ChildButton extends React.Component {
            onClick={this.handleOnClick}
            style={this.props.style}
            className={className}>
-          <i className={iconClass}></i>
+           <i className='mfb-component__child-icon'><FontAwesomeIcon icon={iconClass}></FontAwesomeIcon></i>
         </a>
       </li>
     );
